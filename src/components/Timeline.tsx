@@ -1,91 +1,71 @@
-import { Wine, Church, Heart, ConciergeBell, PartyPopper, Clock } from 'lucide-react';
 import clsx from 'clsx';
+// Ajusta esta ruta a donde guardes el jarrón.png
+import jarronImg from '../assets/itinerario/jarron.png'; 
 
-export default function Timeline() {
+const itinerary = [
+  { time: '3:00 PM', title: 'Recepción', desc: 'Llegada de invitados, bienvenida y primer brindis.' },
+  { time: '3:30 PM', title: 'Ceremonia', desc: 'Nuestros votos frente a familia y amigos.' },
+  { time: '5:10 PM', title: 'El Sí Acepto', desc: 'El momento que estábamos esperando.' },
+  { time: '6:10 PM', title: 'Cena', desc: 'Una cena para celebrar juntos.' },
+  { time: '8:00 PM', title: 'Fiestuqui', desc: 'Música, baile y buena energía hasta tarde.' },
+  { time: '2:00 AM', title: 'Salida', desc: 'Cierre de la celebración.' }
+];
+
+export default function Schedule() {
   return (
-    <section className={clsx('relative', 'w-full', 'min-h-[100dvh]', 'snap-always', 'snap-start', 'flex', 'flex-col', 'items-center', 'justify-center', 'py-20', 'bg-[#F6F1E9]', 'text-[#4a3b32]', 'overflow-hidden')}>
+    <section className={clsx('w-full', 'min-h-[100dvh]', 'bg-[#F6F1E9]', 'text-[#4A3B32]', 'py-20', 'px-6', 'flex', 'justify-center', 'items-center')}>
       
-      <h2 className={clsx('font-pinyon', 'text-5xl', 'md:text-6xl', 'mb-16', 'drop-shadow-sm', 'text-center')}>
-        Itinerario De Actividades
-      </h2>
-
-      <div className={clsx('relative', 'w-full', 'max-w-sm', 'md:max-w-md', 'mx-auto', 'px-4')}>
+      {/* Contenedor Grid Principal */}
+      <div className={clsx('w-full', 'max-w-6xl', 'grid', 'grid-cols-1', 'md:grid-cols-12', 'gap-16', 'md:gap-12', 'lg:gap-24')}>
         
-        {/* Línea central continua */}
-        <div className={clsx('absolute', 'left-1/2', 'top-2', 'bottom-2', 'w-[1px]', 'bg-[#4a3b32]', 'opacity-30', '-translate-x-1/2')}></div>
-
-        {/* 1. Recepción */}
-        <div className={clsx('relative', 'flex', 'items-center', 'justify-between', 'w-full', 'mb-12')}>
-          {/* Puntico */}
-          <div className={clsx('absolute', 'left-1/2', 'w-2', 'h-2', 'rounded-full', 'bg-[#4a3b32]', '-translate-x-1/2')}></div>
+        {/* Columna Izquierda: Título, Fecha y Jarrón */}
+        <div className={clsx('md:col-span-5', 'flex', 'flex-col', 'items-center', 'md:items-start', 'text-center', 'md:text-left')}>
           
-          <div className={clsx('w-[45%]', 'text-right', 'pr-4', 'md:pr-8')}>
-            <h3 className={clsx('font-pinyon', 'text-4xl', 'md:text-5xl')}>Recepcion</h3>
-            <p className={clsx('font-montserrat', 'text-[10px]', 'md:text-xs', 'tracking-widest', 'mt-1', 'opacity-80', 'uppercase')}>3:00 PM</p>
+          <div className={clsx('w-full')}>
+            <h2 className={clsx('font-cormorant', 'text-5xl', 'md:text-6xl', 'lg:text-7xl', 'tracking-[0.15em]', 'uppercase', 'mb-3')}>
+              Itinerario
+            </h2>
+            <p className={clsx('font-montserrat', 'text-xs', 'md:text-sm', 'tracking-[0.2em]', 'uppercase', 'opacity-70')}>
+              24 de Octubre, 2026
+            </p>
           </div>
-          <div className={clsx('w-[45%]', 'pl-4', 'md:pl-8', 'flex', 'justify-start', 'opacity-80')}>
-            <Wine size={36} strokeWidth={1} />
-          </div>
+          
+          {/* El jarrón empujado hacia abajo en desktop para balancear el diseño */}
+          <img 
+            src={jarronImg} 
+            alt="Ilustración Jarrón" 
+            className={clsx('w-32', 'sm:w-40', 'md:w-56', 'mt-12', 'md:mt-32', 'opacity-90', 'select-none', 'pointer-events-none')}
+          />
+          
         </div>
 
-        {/* 2. Ceremonia */}
-        <div className={clsx('relative', 'flex', 'items-center', 'justify-between', 'w-full', 'mb-12')}>
-          <div className={clsx('absolute', 'left-1/2', 'w-2', 'h-2', 'rounded-full', 'bg-[#4a3b32]', '-translate-x-1/2')}></div>
-          <div className={clsx('w-[45%]', 'pr-4', 'md:pr-8', 'flex', 'justify-end', 'opacity-80')}>
-            <Church size={36} strokeWidth={1} />
-          </div>
-          <div className={clsx('w-[45%]', 'text-left', 'pl-4', 'md:pl-8')}>
-            <h3 className={clsx('font-pinyon', 'text-4xl', 'md:text-5xl')}>Ceremonia</h3>
-            <p className={clsx('font-montserrat', 'text-[10px]', 'md:text-xs', 'tracking-widest', 'mt-1', 'opacity-80', 'uppercase')}>3:30 PM</p>
-          </div>
-        </div>
-
-        {/* 3. El Sí Acepto */}
-        <div className={clsx('relative', 'flex', 'items-center', 'justify-between', 'w-full', 'mb-12')}>
-          <div className={clsx('absolute', 'left-1/2', 'w-2', 'h-2', 'rounded-full', 'bg-[#4a3b32]', '-translate-x-1/2')}></div>
-          <div className={clsx('w-[45%]', 'text-right', 'pr-4', 'md:pr-8')}>
-            <h3 className={clsx('font-pinyon', 'text-4xl', 'md:text-5xl')}>El Sí Acepto</h3>
-            <p className={clsx('font-montserrat', 'text-[10px]', 'md:text-xs', 'tracking-widest', 'mt-1', 'opacity-80', 'uppercase')}>5:10 PM</p>
-          </div>
-          <div className={clsx('w-[45%]', 'pl-4', 'md:pl-8', 'flex', 'justify-start', 'opacity-80')}>
-            <Heart size={36} strokeWidth={1} />
-          </div>
-        </div>
-
-        {/* 4. Cena */}
-        <div className={clsx('relative', 'flex', 'items-center', 'justify-between', 'w-full', 'mb-12')}>
-          <div className={clsx('absolute', 'left-1/2', 'w-2', 'h-2', 'rounded-full', 'bg-[#4a3b32]', '-translate-x-1/2')}></div>
-          <div className={clsx('w-[45%]', 'pr-4', 'md:pr-8', 'flex', 'justify-end', 'opacity-80')}>
-            <ConciergeBell size={36} strokeWidth={1} />
-          </div>
-          <div className={clsx('w-[45%]', 'text-left', 'pl-4', 'md:pl-8')}>
-            <h3 className={clsx('font-pinyon', 'text-4xl', 'md:text-5xl')}>Cena</h3>
-            <p className={clsx('font-montserrat', 'text-[10px]', 'md:text-xs', 'tracking-widest', 'mt-1', 'opacity-80', 'uppercase')}>6:10 PM</p>
-          </div>
-        </div>
-
-        {/* 5. Fiestuqui */}
-        <div className={clsx('relative', 'flex', 'items-center', 'justify-between', 'w-full', 'mb-12')}>
-          <div className={clsx('absolute', 'left-1/2', 'w-2', 'h-2', 'rounded-full', 'bg-[#4a3b32]', '-translate-x-1/2')}></div>
-          <div className={clsx('w-[45%]', 'text-right', 'pr-4', 'md:pr-8')}>
-            <h3 className={clsx('font-pinyon', 'text-4xl', 'md:text-5xl')}>Fiestuqui</h3>
-            <p className={clsx('font-montserrat', 'text-[10px]', 'md:text-xs', 'tracking-widest', 'mt-1', 'opacity-80', 'uppercase')}>6:10 PM</p>
-          </div>
-          <div className={clsx('w-[45%]', 'pl-4', 'md:pl-8', 'flex', 'justify-start', 'opacity-80')}>
-            <PartyPopper size={36} strokeWidth={1} />
-          </div>
-        </div>
-
-        {/* 6. Salida */}
-        <div className={clsx('relative', 'flex', 'items-center', 'justify-between', 'w-full')}>
-          <div className={clsx('absolute', 'left-1/2', 'w-2', 'h-2', 'rounded-full', 'bg-[#4a3b32]', '-translate-x-1/2')}></div>
-          <div className={clsx('w-[45%]', 'text-right', 'pr-4', 'md:pr-8')}>
-            <h3 className={clsx('font-pinyon', 'text-4xl', 'md:text-5xl')}>Salida</h3>
-            <p className={clsx('font-montserrat', 'text-[10px]', 'md:text-xs', 'tracking-widest', 'mt-1', 'opacity-80', 'uppercase')}>7:00 PM</p>
-          </div>
-          <div className={clsx('w-[45%]', 'pl-4', 'md:pl-8', 'flex', 'justify-start', 'opacity-80')}>
-            <Clock size={36} strokeWidth={1} />
-          </div>
+        {/* Columna Derecha: Cronograma (Timeline) */}
+        <div className={clsx('md:col-span-7', 'flex', 'flex-col', 'w-full')}>
+          {itinerary.map((item, index) => (
+            <div 
+              key={index} 
+              className={clsx(
+                'flex', 'flex-col', 'sm:flex-row', 'items-start', 'py-6', 'md:py-8',
+                // Agrega la línea divisoria a todos menos al último elemento
+                index !== itinerary.length - 1 && 'border-b border-[#4A3B32]/15'
+              )}
+            >
+              {/* Hora con ancho fijo para que todos los títulos queden perfectamente alineados */}
+              <div className={clsx('sm:w-32', 'shrink-0', 'font-montserrat', 'font-bold', 'text-sm', 'md:text-base', 'tracking-widest', 'mb-2', 'sm:mb-0', 'sm:pt-1')}>
+                {item.time}
+              </div>
+              
+              {/* Contenido (Título y Descripción) */}
+              <div className={clsx('flex', 'flex-col')}>
+                <h3 className={clsx('font-cormorant', 'text-2xl', 'md:text-3xl', 'font-bold', 'tracking-wide', 'mb-2')}>
+                  {item.title}
+                </h3>
+                <p className={clsx('font-cormorant', 'text-base', 'md:text-xl', 'opacity-80', 'leading-relaxed')}>
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
 
       </div>

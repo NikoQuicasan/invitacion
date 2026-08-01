@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import clsx from 'clsx';
+import FloralCorner from './FloralCorner';
 
 // Importa tus imágenes aquí (ajusta los nombres según cómo los guardaste)
 import bgImg from '../assets/intro/fondo-intro.png';
@@ -10,11 +11,12 @@ import envSeal from '../assets/intro/sello.png';
 
 interface IntroProps {
   onOpenComplete: () => void;
+  onPlayMusic?: () => void;
 }
 
-export default function Intro({ onOpenComplete }: IntroProps) {
+export default function Intro({ onOpenComplete, onPlayMusic }: IntroProps) {
   const [isOpening, setIsOpening] = useState(false);
-  
+
   const containerRef = useRef<HTMLDivElement>(null);
   const flapRef = useRef<HTMLImageElement>(null);
   const sealRef = useRef<HTMLImageElement>(null);
@@ -24,6 +26,10 @@ export default function Intro({ onOpenComplete }: IntroProps) {
   const handleOpen = () => {
     if (isOpening) return;
     setIsOpening(true);
+
+    // Arranca la música justo en el click del sobre (gesto del usuario),
+    // así el navegador permite el autoplay sin necesidad de un reproductor aparte.
+    onPlayMusic?.();
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -67,33 +73,39 @@ export default function Intro({ onOpenComplete }: IntroProps) {
   };
 
   return (
-    <section 
+    <section
       ref={containerRef}
       className={clsx('fixed', 'inset-0', 'z-50', 'flex', 'items-center', 'justify-center', 'bg-cover', 'bg-center', 'overflow-hidden')}
       style={{ backgroundImage: `url(${bgImg})` }}
     >
+      {/* Detalles florales en las 4 esquinas de la pantalla */}
+      <FloralCorner className={clsx('absolute', 'top-2', 'left-2', 'w-24', 'h-24', 'md:w-36', 'md:h-36', 'text-[#F6F1E9]/60', 'z-10')} />
+      <FloralCorner className={clsx('absolute', 'top-2', 'right-2', 'w-24', 'h-24', 'md:w-36', 'md:h-36', 'text-[#F6F1E9]/60', 'z-10', 'scale-x-[-1]')} />
+      <FloralCorner className={clsx('absolute', 'bottom-2', 'right-2', 'w-24', 'h-24', 'md:w-36', 'md:h-36', 'text-[#F6F1E9]/60', 'z-10', 'scale-[-1]')} />
+      <FloralCorner className={clsx('absolute', 'bottom-2', 'left-2', 'w-24', 'h-24', 'md:w-36', 'md:h-36', 'text-[#F6F1E9]/60', 'z-10', '-scale-y-100')} />
+
       {/* 2. Textos (Arriba y Abajo del sobre) */}
-      <div 
-        ref={textRef} 
+      <div
+        ref={textRef}
         className={clsx('absolute', 'inset-0', 'z-20', 'flex', 'flex-col', 'items-center', 'justify-between', 'py-[20vh]', 'pointer-events-none')}
       >
         <h1 className={clsx('text-[#F6F1E9]', 'text-4xl', 'md:text-5xl', 'lg:text-6xl', 'font-montserrat', 'tracking-[0.1em]', 'drop-shadow-[0_4px_4px_rgba(0,0,0,0.6)]')}>
           NOS CASAMOS!!!
         </h1>
-        
+
         <p className={clsx('text-[#F6F1E9]', 'text-xl', 'md:text-2xl', 'font-montserrat', 'tracking-[0.2em]', 'drop-shadow-[0_4px_4px_rgba(0,0,0,0.6)]')}>
           HAZ CLICK!
         </p>
       </div>
 
       {/* 3. Contenedor del Sobre (En el centro) */}
-      <div 
+      <div
         className={clsx('relative', 'w-80', 'h-52', 'cursor-pointer', 'transition-transform', 'hover:scale-105', 'z-30')}
         onClick={handleOpen}
         style={{ perspective: "1000px" }}
       >
         {/* La tarjeta que sale */}
-        <div 
+        <div
           ref={letterRef}
           className={clsx('absolute', 'inset-x-4', 'top-4', 'bottom-0', 'bg-crema', 'rounded-t-lg', 'shadow-md', 'opacity-0', 'flex', 'items-center', 'justify-center')}
         >
@@ -101,26 +113,26 @@ export default function Intro({ onOpenComplete }: IntroProps) {
         </div>
 
         {/* Cuerpo del sobre */}
-        <img 
-          src={envBody} 
-          alt="Cuerpo del sobre" 
+        <img
+          src={envBody}
+          alt="Cuerpo del sobre"
           className={clsx('absolute', 'inset-0', 'w-full', 'h-full', 'object-contain', 'z-20')}
         />
 
         {/* Solapa */}
-        <img 
+        <img
           ref={flapRef}
-          src={envFlap} 
-          alt="Solapa" 
+          src={envFlap}
+          alt="Solapa"
           className={clsx('absolute', 'top-0', 'left-0', 'w-full', 'h-[60%]', 'object-contain', 'z-30')}
-          style={{ transformOrigin: "top center" }} 
+          style={{ transformOrigin: "top center" }}
         />
 
         {/* Sello */}
-        <img 
+        <img
           ref={sealRef}
-          src={envSeal} 
-          alt="Sello" 
+          src={envSeal}
+          alt="Sello"
           className={clsx('absolute', 'top-[45%]', 'left-1/2', '-translate-x-1/2', '-translate-y-1/2', 'w-16', 'h-16', 'z-40', 'drop-shadow-lg')}
         />
       </div>

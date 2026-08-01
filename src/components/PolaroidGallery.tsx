@@ -17,7 +17,7 @@ export default function PolaroidGallery() {
     const polaroids = polaroidsRef.current;
 
     // 1. Animación de entrada: Entran desde abajo cuando la sección aparece en pantalla
-    gsap.fromTo(polaroids, 
+    gsap.fromTo(polaroids,
       { y: 150, opacity: 0, scale: 0.8 },
       {
         y: 0,
@@ -26,10 +26,10 @@ export default function PolaroidGallery() {
         duration: 1.2,
         stagger: 0.2, // Retraso entre cada foto para que entren una por una
         ease: "back.out(1.2)",
-scrollTrigger: {
+        scrollTrigger: {
           trigger: section,
           scroller: "#main-scroll", // <--- ¡Esta es la clave para que las fotos aparezcan!
-          start: "top 60%", 
+          start: "top 60%",
         },
         onComplete: () => {
           // 2. Animación infinita: Efecto de levitación (flotar)
@@ -56,14 +56,14 @@ scrollTrigger: {
   };
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      className={clsx('relative', 'w-full', 'h-[100dvh]', 'snap-always', 'snap-start', 'flex', 'items-center', 'justify-center', 'bg-[#747d5c]', 'overflow-hidden')}
+      className={clsx('relative', 'w-full', 'h-[100dvh]', 'flex', 'items-center', 'justify-center', 'bg-[#747d5c]', 'overflow-hidden')}
     >
       <div className={clsx('relative', 'w-full', 'max-w-lg', 'h-[80vh]')}>
-        
+
         {/* Polaroid 1 - Izquierda */}
-        <div 
+        <div
           ref={addToRefs}
           className={clsx('absolute', 'top-[10%]', 'left-[5%]', 'w-40', 'md:w-48', 'bg-[#F6F1E9]', 'p-3', 'pb-12', 'shadow-2xl', '-rotate-12', 'z-10')}
         >
@@ -71,7 +71,7 @@ scrollTrigger: {
         </div>
 
         {/* Polaroid 2 - Derecha */}
-        <div 
+        <div
           ref={addToRefs}
           className={clsx('absolute', 'top-[20%]', 'right-[5%]', 'w-44', 'md:w-52', 'bg-[#F6F1E9]', 'p-3', 'pb-12', 'shadow-2xl', 'rotate-12', 'z-20')}
         >
@@ -79,7 +79,7 @@ scrollTrigger: {
         </div>
 
         {/* Polaroid 3 - Abajo Centro */}
-        <div 
+        <div
           ref={addToRefs}
           className={clsx('absolute', 'bottom-[10%]', 'left-[20%]', 'md:left-[25%]', 'w-48', 'md:w-56', 'bg-[#F6F1E9]', 'p-3', 'pb-12', 'shadow-2xl', '-rotate-6', 'z-30')}
         >

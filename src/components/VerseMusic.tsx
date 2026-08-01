@@ -1,84 +1,100 @@
-import { useState, useRef } from 'react';
-import { Play, Pause, SkipBack, SkipForward, Rewind, FastForward, Heart, ListMusic } from 'lucide-react';
-import proposalImg from '../assets/propuesta/propuesta.png'; 
 import clsx from 'clsx';
+import proposalImg from '../assets/propuesta/propuesta.png';
 
-// Importamos el archivo mp3 (Asegúrate de que el nombre coincida con tu archivo)
-import miCancion from '../assets/musica.mp3'; 
+// Creamos un componente SVG pequeño para no ensuciar el JSX principal.
+// Usa 'currentColor' para que herede el color del texto y la opacidad de Tailwind.
+const BranchSVG = ({ className }: { className?: string }) => (
+  <svg 
+    className={className} 
+    viewBox="0 0 100 100" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="0.5" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    {/* Tallo principal */}
+    <path d="M 90 90 Q 50 60 10 10" />
+    {/* Hoja 1 */}
+    <path d="M 50 60 C 30 50 20 20 40 30 C 50 40 60 50 50 60 Z" />
+    {/* Hoja 2 */}
+    <path d="M 25 35 C 10 20 10 0 30 10 C 35 20 30 30 25 35 Z" />
+    {/* Hoja 3 */}
+    <path d="M 70 55 C 80 30 100 20 90 50 C 85 60 75 60 70 55 Z" />
+  </svg>
+);
 
-export default function VerseMusic() {
-  // Estado para saber si está sonando o no
-  const [isPlaying, setIsPlaying] = useState(false);
-  // Referencia al elemento de audio oculto
-  const audioRef = useRef<HTMLAudioElement>(null);
-
-  const togglePlay = () => {
-    if (isPlaying) {
-      audioRef.current?.pause();
-    } else {
-      audioRef.current?.play();
-    }
-    setIsPlaying(!isPlaying);
-  };
-
+export default function OurStory() {
   return (
-    <section className={clsx('relative', 'w-full', 'min-h-[100dvh]', 'snap-always', 'snap-start', 'flex', 'flex-col', 'items-center', 'justify-center', 'px-6', 'py-12', 'bg-[#F6F1E9]', 'text-oliva-oscuro')}>
-      
-      {/* Reproductor de audio oculto */}
-      <audio ref={audioRef} src={miCancion} loop />
+    <section className={clsx('relative', 'w-full', 'min-h-[100dvh]', 'flex', 'flex-col', 'items-center', 'justify-center', 'px-6', 'py-20', 'bg-[#F6F1E9]', 'text-[#4A5D23]', 'overflow-hidden')}>
 
-      {/* Foto de la propuesta */}
-      <div className={clsx('w-full', 'max-w-xs', 'md:max-w-sm', 'mb-8', 'shadow-xl')}>
-        <img 
-          src={proposalImg} 
-          alt="Niko y Aleja" 
-          className={clsx('w-full', 'h-auto', 'object-cover')}
-        />
-      </div>
+      {/* Fila: texto — foto — texto */}
+      <div className={clsx('flex', 'flex-col', 'md:flex-row', 'items-center', 'justify-center', 'gap-10', 'md:gap-16', 'lg:gap-24', 'w-full', 'max-w-6xl', 'z-10')}>
 
-      {/* Versículo */}
-      <div className={clsx('text-center', 'max-w-md', 'mb-12')}>
-        <h2 className={clsx('font-pinyon', 'text-5xl', 'mb-4')}>Génesis 2:24</h2>
-        <p className={clsx('font-cormorant', 'text-lg', 'md:text-xl', 'leading-relaxed', 'tracking-wide', 'opacity-90')}>
-          Por Eso El Hombre Dejara A Su Padre Y A Su Madre, Y Se Unira A Su Esposa, Y Los Dos Llegaran A Ser Un Solo Cuerpo.
+        <p className={clsx('md:flex-1', 'text-center', 'md:text-right', 'font-cormorant', 'text-2xl', 'md:text-4xl', 'lg:text-5xl', 'tracking-[0.15em]', 'uppercase', 'leading-snug')}>
+          Nuestra<br className={clsx('hidden', 'md:block')} /> Historia
         </p>
-      </div>
 
-      {/* Reproductor de Música UI */}
-      <div className={clsx('w-full', 'max-w-xs', 'flex', 'flex-col', 'items-center')}>
-        
-        <div className={clsx('w-full', 'flex', 'items-center', 'justify-between', 'mb-6')}>
-          <div className={clsx('flex-1', 'flex', 'items-center')}>
-            <div className={clsx('w-2', 'h-2', 'rounded-full', 'bg-oliva-oscuro')}></div>
-            <div className={clsx('h-[1px]', 'bg-oliva-oscuro', 'flex-1', 'ml-1', 'opacity-40')}></div>
-          </div>
-          <div className={clsx('flex', 'gap-3', 'ml-4', 'opacity-80')}>
-            <ListMusic size={18} />
-            <Heart size={18} className="fill-current" />
-          </div>
-        </div>
-
-        {/* Controles de reproducción */}
-        <div className={clsx('flex', 'items-center', 'gap-5', 'md:gap-6')}>
-          <Rewind size={20} className={clsx('fill-current', 'opacity-70', 'hover:opacity-100', 'cursor-pointer')} />
-          <SkipBack size={20} className={clsx('fill-current', 'opacity-70', 'hover:opacity-100', 'cursor-pointer')} />
+        {/* Contenedor central: Foto + Ramitas SVG */}
+        <div className={clsx('relative', 'flex-shrink-0')}>
           
-          {/* Botón Play/Pause Gigante con la función onClick */}
-          <div 
-            onClick={togglePlay}
-            className={clsx('w-14', 'h-14', 'bg-oliva-oscuro', 'text-[#F6F1E9]', 'rounded-full', 'flex', 'items-center', 'justify-center', 'shadow-lg', 'cursor-pointer', 'hover:scale-105', 'transition-transform')}
-          >
-            {isPlaying ? (
-              <Pause size={24} className="fill-current" />
-            ) : (
-              <Play size={24} className={clsx('fill-current', 'ml-1')} />
+          {/* Ramita Izquierda (Abajo) */}
+          <BranchSVG 
+            className={clsx(
+              'absolute', 'w-24', 'md:w-36', 
+              'right-[75%]', 'bottom-0', 'md:-bottom-5', 
+              'opacity-30', 'pointer-events-none', 'z-0',
+              '-scale-x-100', 'rotate-12' // La invertimos y rotamos un poco
             )}
-          </div>
+          />
           
-          <SkipForward size={20} className={clsx('fill-current', 'opacity-70', 'hover:opacity-100', 'cursor-pointer')} />
-          <FastForward size={20} className={clsx('fill-current', 'opacity-70', 'hover:opacity-100', 'cursor-pointer')} />
+          {/* Ramita Derecha (Arriba) */}
+          <BranchSVG 
+            className={clsx(
+              'absolute', 'w-24', 'md:w-36', 
+              'left-[75%]', 'top-0', 'md:-top-5', 
+              'opacity-30', 'pointer-events-none', 'z-0',
+              'rotate-[190deg]' // La rotamos para que apunte hacia el lado contrario
+            )}
+          />
+
+          {/* Foto estilo Polaroid (con la 'sombrita') */}
+          <div className={clsx(
+            'relative', 'z-10', 
+            'w-64', 'md:w-80', 'lg:w-[26rem]', 'aspect-[3/4]', 
+            'bg-white', 'p-3', 'md:p-4', 'pb-12', 'md:pb-16', 
+            'shadow-[15px_15px_20px_rgba(0,0,0,0.15)]', 
+            '-rotate-2' 
+          )}>
+            <img
+              src={proposalImg}
+              alt="Niko y Aleja"
+              className={clsx('w-full', 'h-full', 'object-cover')}
+            />
+          </div>
         </div>
+
+        <p className={clsx('md:flex-1', 'text-center', 'md:text-left', 'font-cormorant', 'text-2xl', 'md:text-4xl', 'lg:text-5xl', 'tracking-[0.15em]', 'uppercase', 'leading-snug')}>
+          (Como<br className={clsx('hidden', 'md:block')} /> Pareja)
+        </p>
+
       </div>
+
+      {/* Párrafo de la historia */}
+      <p className={clsx('mt-16', 'md:mt-24', 'max-w-md', 'md:max-w-2xl', 'text-center', 'font-cormorant', 'text-sm', 'md:text-base', 'tracking-widest', 'leading-relaxed', 'opacity-90')}>
+        Todo comenzó con una mirada cómplice en una playa similar a esta, bajo el
+        <br className="hidden md:block"/>
+        manto estrellado. No fue casualidad, fue el inicio de nuestro propio
+        <br className="hidden md:block"/>
+        'Quiero Contigo'. Desde aquel primer encuentro, cada ola y cada viaje han
+        <br className="hidden md:block"/>
+        sido un paso más en nuestro camino compartido. Hoy, nos preparamos para
+        <br className="hidden md:block"/>
+        el capítulo más importante: el resto de nuestras vidas.
+        <br className="hidden md:block"/>
+        ¡Gracias por ser parte de nuestra historia!
+      </p>
 
     </section>
   );

@@ -1,32 +1,89 @@
-import { Gift } from 'lucide-react';
-import qrImg from '../assets/qr/qr.png';
+import qrImg from '../assets/qr/qr.jpg';
 import clsx from 'clsx';
+import FloralCorner from './FloralCorner';
+
+// Ícono de sobre personalizado con sello de cera e iniciales
+function EnvelopeIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 80" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        {/* Contorno del sobre */}
+        <rect x="5" y="5" width="110" height="70" rx="2" />
+        {/* Solapas */}
+        <path d="M5 5 L60 45 L115 5" />
+        <path d="M5 75 L45 45" />
+        <path d="M115 75 L75 45" />
+      </g>
+      {/* Sello de cera (el fill debe coincidir con el fondo de la tarjeta) */}
+      <circle cx="60" cy="45" r="14" fill="#c48a4a" stroke="currentColor" strokeWidth="1.5" />
+      {/* Detalle interno del sello */}
+      <circle cx="60" cy="45" r="11" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.6" />
+      {/* Iniciales */}
+      <text x="60.5" y="48" fontSize="9" textAnchor="middle" fill="currentColor" fontFamily="serif" letterSpacing="0.5">
+        N&amp;A
+      </text>
+    </svg>
+  );
+}
+
 export default function Gifts() {
   return (
-    <section className={clsx('relative', 'w-full', 'py-24', 'snap-always', 'snap-start', 'flex', 'flex-col', 'items-center', 'justify-center', 'bg-[#d49b5d]', 'text-[#F6F1E9]', 'text-center', 'px-6')}>
-      
-      <h2 className={clsx('font-pinyon', 'text-6xl', 'md:text-7xl', 'mb-4', 'drop-shadow-sm')}>
-        Lluvia De Sobres
-      </h2>
-      
-      <p className={clsx('font-cormorant', 'text-xl', 'md:text-2xl', 'leading-relaxed', 'tracking-wide', 'mb-10', 'max-w-sm', 'opacity-90')}>
-        Tu Presencia Es Nuestro Mejor Regalo, Pero Si Deseas Tener Un Detalle Con Nosotros...
-      </p>
+    <section className={clsx(
+      'relative', 'w-full', 'min-h-[100dvh]', 'flex', 'items-center', 'justify-center', 
+      'py-16', 'px-4', 'md:px-8', 
+      'bg-[#a36d35]', // Fondo exterior (ligeramente más oscuro para contrastar)
+      'overflow-hidden'
+    )}>
 
-      {/* Ícono de regalo lineal */}
-      <div className={clsx('mb-8', 'opacity-90')}>
-        <Gift size={56} strokeWidth={1} />
-      </div>
+      {/* Tarjeta Central que simula la invitación física */}
+      <div className={clsx(
+        'relative', 'w-full', 'max-w-2xl', 
+        'bg-[#c48a4a]', // Color principal de la tarjeta
+        'text-[#F6F1E9]', 'text-center', 
+        'py-16', 'md:py-20', 'px-6', 'md:px-12', 
+        'shadow-2xl', 'flex', 'flex-col', 'items-center'
+      )}>
 
-      {/* Contenedor del QR */}
-      <div className={clsx('w-48', 'h-48', 'md:w-56', 'md:h-56', 'bg-transparent', 'border', 'border-[#F6F1E9]/30', 'rounded-lg', 'p-2', 'shadow-xl', 'flex', 'items-center', 'justify-center', 'overflow-hidden', 'hover:scale-105', 'transition-transform', 'duration-300')}>
-        {/* Usamos el QR exportado. Si no lo encuentra, no rompe la página */}
-        <img 
-          src={qrImg} 
-          alt="Código QR para Lluvia de Sobres" 
-          className={clsx('w-full', 'h-full', 'object-cover', 'rounded')}
-          onError={(e) => e.currentTarget.style.display = 'none'} 
-        />
+        {/* Esquinas Florales de la Tarjeta */}
+        <FloralCorner className={clsx('absolute', 'top-5', 'left-5', 'w-16', 'h-16', 'md:w-20', 'md:h-20', 'text-[#F6F1E9]/30')} />
+        <FloralCorner className={clsx('absolute', 'bottom-5', 'right-5', 'w-16', 'h-16', 'md:w-20', 'md:h-20', 'text-[#F6F1E9]/30', 'scale-[-1]')} />
+
+        <h2 className={clsx('relative', 'z-10', 'font-pinyon', 'text-5xl', 'md:text-7xl', 'mb-6', 'drop-shadow-sm')}>
+          Lluvia De Sobres
+        </h2>
+
+        <p className={clsx('relative', 'z-10', 'font-cormorant', 'text-lg', 'md:text-2xl', 'leading-relaxed', 'tracking-wide', 'mb-10', 'max-w-md', 'opacity-90')}>
+          Tu Presencia Es Nuestro Mejor Regalo, Pero Si Deseas Tener Un Detalle Con Nosotros...
+        </p>
+
+        {/* Ícono de Sobre */}
+        <EnvelopeIcon className={clsx('w-24', 'md:w-32', 'h-auto', 'mb-10', 'text-[#F6F1E9]/90')} />
+
+        {/* Contenedor del QR con marco decorativo (doble borde) */}
+        <div className={clsx(
+          'relative', 'z-10', 'mb-10',
+          'border-double', 'border-4', 'border-[#F6F1E9]/50', 'rounded-sm', 'p-3',
+          'hover:scale-105', 'transition-transform', 'duration-300', 'shadow-lg'
+        )}>
+          <p>NEQUI</p>
+          <div className={clsx('w-32', 'h-32', 'md:w-44', 'md:h-44','p-2')}>
+            <img
+              src={qrImg}
+              alt="Código QR"
+              className={clsx('w-full', 'h-full', 'object-contain')}
+              onError={(e) => e.currentTarget.style.display = 'none'}
+            />
+          </div>
+        </div>
+
+        {/* Datos Bancarios Opcionales */}
+        <div className={clsx('relative', 'z-10', 'font-montserrat', 'text-[9px]', 'md:text-[11px]', 'opacity-80', 'tracking-widest', 'uppercase')}>
+          <p className="mb-2">O si lo prefieres, por transferencia:</p>
+          <p>
+            Bancolombia / Cuenta: 229-000042-62 / Titular: Nikolas Quicasan
+          </p>
+        </div>
+
       </div>
 
     </section>
