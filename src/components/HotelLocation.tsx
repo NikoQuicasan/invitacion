@@ -1,6 +1,7 @@
 import hotelImg from '../assets/hotel/hotel.png';
 import flor1 from '../assets/hotel/flor1.png';
 import clsx from 'clsx';
+import ScrollReveal from './ScrollReveal';
 
 export default function HotelLocation() {
   return (
@@ -36,7 +37,7 @@ export default function HotelLocation() {
       />
 
       {/* Contenido centralizado */}
-      <div className={clsx('relative', 'z-10', 'flex', 'flex-col', 'items-center', 'w-full', 'max-w-4xl')}>
+      <ScrollReveal className={clsx('relative', 'z-10', 'flex', 'flex-col', 'items-center', 'w-full', 'max-w-4xl')}>
         <h2 className={clsx(
           'font-pinyon', 
           'text-5xl', 'sm:text-6xl', 'md:text-8xl', 'lg:text-9xl',
@@ -78,8 +79,7 @@ export default function HotelLocation() {
             CÓMO LLEGAR?
           </a>
         </div>
-      </div>
-
+      </ScrollReveal>
     </section>
   );
 }

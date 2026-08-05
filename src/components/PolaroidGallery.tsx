@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import foto1 from '../assets/gallery/foto-1.png';
 import foto2 from '../assets/gallery/foto-2.png';
 import foto3 from '../assets/gallery/foto-3.png';
+import TornDivider from './TornDivider';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,6 +88,9 @@ export default function PolaroidGallery() {
         </div>
 
       </div>
+
+      {/* "Recorte" hacia la siguiente sección (Timeline, fondo #F6F1E9) */}
+      <TornDivider color="#F6F1E9" />
     </section>
   );
 }

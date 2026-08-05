@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import FloralCorner from './FloralCorner';
+import ScrollReveal from './ScrollReveal';
 
 // Vector: Línea ornamental elegante para las fechas
 const OrnamentalLineSVG = ({ className }: { className?: string }) => (
@@ -45,12 +46,12 @@ export default function RsvpForm() {
       <BottomFlourishSVG className={clsx('absolute', 'bottom-0', 'left-1/2', '-translate-x-1/2', 'w-full', 'max-w-xl', 'h-auto', 'pointer-events-none', 'z-0')} />
 
       {/* Mes */}
-      <h2 className={clsx('relative', 'z-10', 'font-pinyon', 'text-7xl', 'md:text-8xl', 'mb-6', 'drop-shadow-sm')}>
+      <ScrollReveal y={20} className={clsx('relative', 'z-10', 'font-pinyon', 'text-7xl', 'md:text-8xl', 'mb-6', 'drop-shadow-sm')}>
         Octubre
-      </h2>
+      </ScrollReveal>
 
       {/* Estructura de la Fecha (Día - Número - Año) */}
-      <div className={clsx('relative', 'z-10', 'flex', 'items-center', 'justify-center', 'gap-4', 'md:gap-8', 'mb-16')}>
+      <ScrollReveal delay={0.15} className={clsx('relative', 'z-10', 'flex', 'items-center', 'justify-center', 'gap-4', 'md:gap-8', 'mb-16')}>
 
         {/* Día de la semana */}
         <div className={clsx('flex', 'flex-col', 'items-center', 'w-24', 'md:w-32')}>
@@ -76,24 +77,26 @@ export default function RsvpForm() {
           <OrnamentalLineSVG className={clsx('w-16', 'md:w-24', 'h-auto', 'mt-3')} />
         </div>
 
-      </div>
+      </ScrollReveal>
 
       {/* Botón de Confirmación */}
-      <a 
-        href='https://wa.link/tps9wa' 
-        target='_blank' 
-        rel='noreferrer' 
-        className={clsx(
-          'relative', 'z-10', 'bg-[#5a3a2a]', 'hover:bg-[#432a1e]', // Tonos marrón oscuro elegantes
-          'text-[#F6F1E9]', 'font-montserrat', 'font-bold', 
-          'text-xs', 'md:text-sm', 'tracking-[0.2em]', 'uppercase', 
-          'px-10', 'md:px-14', 'py-4', 'md:py-5', 'rounded-full', 
-          'transition-all', 'duration-300', 'hover:scale-105', 'shadow-2xl', 
-          'border', 'border-[#F6F1E9]/10'
-        )}
-      >
-        Confirmar Asistencia
-      </a>
+      <ScrollReveal delay={0.3} y={20}>
+        <a
+          href='https://wa.link/tps9wa'
+          target='_blank'
+          rel='noreferrer'
+          className={clsx(
+            'relative', 'z-10', 'bg-[#5a3a2a]', 'hover:bg-[#432a1e]', // Tonos marrón oscuro elegantes
+            'text-[#F6F1E9]', 'font-montserrat', 'font-bold',
+            'text-xs', 'md:text-sm', 'tracking-[0.2em]', 'uppercase',
+            'px-10', 'md:px-14', 'py-4', 'md:py-5', 'rounded-full',
+            'transition-all', 'duration-300', 'hover:scale-105', 'shadow-2xl',
+            'border', 'border-[#F6F1E9]/10'
+          )}
+        >
+          Confirmar Asistencia
+        </a>
+      </ScrollReveal>
 
     </section>
   );

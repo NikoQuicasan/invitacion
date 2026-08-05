@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 import proposalImg from '../assets/propuesta/propuesta.png';
+import TornDivider from './TornDivider';
+import ScrollReveal from './ScrollReveal';
 
 // Creamos un componente SVG pequeño para no ensuciar el JSX principal.
 // Usa 'currentColor' para que herede el color del texto y la opacidad de Tailwind.
@@ -30,10 +32,10 @@ export default function OurStory() {
     <section className={clsx('relative', 'w-full', 'min-h-[100dvh]', 'flex', 'flex-col', 'items-center', 'justify-center', 'px-6', 'py-20', 'bg-[#F6F1E9]', 'text-[#4A5D23]', 'overflow-hidden')}>
 
       {/* Fila: texto — foto — texto */}
-      <div className={clsx('flex', 'flex-col', 'md:flex-row', 'items-center', 'justify-center', 'gap-10', 'md:gap-16', 'lg:gap-24', 'w-full', 'max-w-6xl', 'z-10')}>
+      <ScrollReveal className={clsx('flex', 'flex-col', 'md:flex-row', 'items-center', 'justify-center', 'gap-10', 'md:gap-16', 'lg:gap-24', 'w-full', 'max-w-6xl', 'z-10')}>
 
         <p className={clsx('md:flex-1', 'text-center', 'md:text-right', 'font-cormorant', 'text-2xl', 'md:text-4xl', 'lg:text-5xl', 'tracking-[0.15em]', 'uppercase', 'leading-snug')}>
-          Nuestra<br className={clsx('hidden', 'md:block')} /> Historia
+          Nuestra<br className={clsx('hidden', 'md:block')} />
         </p>
 
         {/* Contenedor central: Foto + Ramitas SVG */}
@@ -76,13 +78,13 @@ export default function OurStory() {
         </div>
 
         <p className={clsx('md:flex-1', 'text-center', 'md:text-left', 'font-cormorant', 'text-2xl', 'md:text-4xl', 'lg:text-5xl', 'tracking-[0.15em]', 'uppercase', 'leading-snug')}>
-          (Como<br className={clsx('hidden', 'md:block')} /> Pareja)
+          Historia<br className={clsx('hidden', 'md:block')} />
         </p>
 
-      </div>
+      </ScrollReveal>
 
       {/* Párrafo de la historia */}
-      <p className={clsx('mt-16', 'md:mt-24', 'max-w-md', 'md:max-w-2xl', 'text-center', 'font-cormorant', 'text-sm', 'md:text-base', 'tracking-widest', 'leading-relaxed', 'opacity-90')}>
+      <ScrollReveal delay={0.2} className={clsx('mt-16', 'md:mt-24', 'max-w-md', 'md:max-w-2xl', 'text-center', 'font-cormorant', 'text-sm', 'md:text-base', 'tracking-widest', 'leading-relaxed', 'opacity-90')}>
         Todo comenzó con una mirada cómplice en una playa similar a esta, bajo el
         <br className="hidden md:block"/>
         manto estrellado. No fue casualidad, fue el inicio de nuestro propio
@@ -94,8 +96,10 @@ export default function OurStory() {
         el capítulo más importante: el resto de nuestras vidas.
         <br className="hidden md:block"/>
         ¡Gracias por ser parte de nuestra historia!
-      </p>
+      </ScrollReveal>
 
+      {/* "Recorte" hacia la siguiente sección (LoveVerse, fondo #563b31) */}
+      <TornDivider color="#d98b65" />
     </section>
   );
 }

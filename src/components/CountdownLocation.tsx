@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import clsx from 'clsx';
+import ScrollReveal from './ScrollReveal';
 
 // Vector: Esquina decorativa (estilo marco elegante)
 const CornerSVG = ({ className }: { className?: string }) => (
@@ -78,12 +79,12 @@ export default function Countdown() {
       {/* Contenido principal */}
       <div className={clsx('relative', 'z-10', 'flex', 'flex-col', 'items-center', 'w-full', 'px-4')}>
         
-        <h2 className={clsx('font-pinyon', 'text-6xl', 'md:text-7xl', 'mb-6', 'drop-shadow-sm')}>
+        <ScrollReveal y={20} className={clsx('font-pinyon', 'text-6xl', 'md:text-7xl', 'mb-6', 'drop-shadow-sm')}>
           Faltan
-        </h2>
-        
+        </ScrollReveal>
+
         {/* Contenedor tipo "cápsula" de los números */}
-        <div className={clsx(
+        <ScrollReveal delay={0.2} className={clsx(
           'flex', 'items-center', 'justify-center', 
           'bg-black/15', // Fondo semi-transparente oscuro
           'rounded-xl', 'px-4', 'sm:px-8', 'py-4', 'md:py-6',
@@ -120,7 +121,7 @@ export default function Countdown() {
             <span className={clsx('font-montserrat', 'text-[8px]', 'sm:text-[10px]', 'uppercase', 'tracking-widest', 'mt-1', 'opacity-80')}>Segundos</span>
           </div>
           
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

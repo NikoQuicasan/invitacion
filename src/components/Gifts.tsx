@@ -1,6 +1,7 @@
 import qrImg from '../assets/qr/qr.jpg';
 import clsx from 'clsx';
 import FloralCorner from './FloralCorner';
+import ScrollReveal from './ScrollReveal';
 
 // Ícono de sobre personalizado con sello de cera e iniciales
 function EnvelopeIcon({ className }: { className?: string }) {
@@ -36,7 +37,7 @@ export default function Gifts() {
     )}>
 
       {/* Tarjeta Central que simula la invitación física */}
-      <div className={clsx(
+      <ScrollReveal y={50} className={clsx(
         'relative', 'w-full', 'max-w-2xl', 
         'bg-[#c48a4a]', // Color principal de la tarjeta
         'text-[#F6F1E9]', 'text-center', 
@@ -84,7 +85,7 @@ export default function Gifts() {
           </p>
         </div>
 
-      </div>
+      </ScrollReveal>
 
     </section>
   );

@@ -49,8 +49,9 @@ function App() {
         <Timeline />
         <DressCode />
         <Gifts />
-        <CountdownLocation />
         <RsvpForm />
+        <CountdownLocation />
+
         <LoveVerse />
 
       </main>

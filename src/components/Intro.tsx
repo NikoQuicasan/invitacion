@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import clsx from 'clsx';
-import FloralCorner from './FloralCorner';
+import flor1 from '../assets/hotel/flor1.png';
 
 // Importa tus imágenes aquí (ajusta los nombres según cómo los guardaste)
 import bgImg from '../assets/intro/fondo-intro.png';
@@ -78,11 +78,19 @@ export default function Intro({ onOpenComplete, onPlayMusic }: IntroProps) {
       className={clsx('fixed', 'inset-0', 'z-50', 'flex', 'items-center', 'justify-center', 'bg-cover', 'bg-center', 'overflow-hidden')}
       style={{ backgroundImage: `url(${bgImg})` }}
     >
-      {/* Detalles florales en las 4 esquinas de la pantalla */}
-      <FloralCorner className={clsx('absolute', 'top-2', 'left-2', 'w-24', 'h-24', 'md:w-36', 'md:h-36', 'text-[#F6F1E9]/60', 'z-10')} />
-      <FloralCorner className={clsx('absolute', 'top-2', 'right-2', 'w-24', 'h-24', 'md:w-36', 'md:h-36', 'text-[#F6F1E9]/60', 'z-10', 'scale-x-[-1]')} />
-      <FloralCorner className={clsx('absolute', 'bottom-2', 'right-2', 'w-24', 'h-24', 'md:w-36', 'md:h-36', 'text-[#F6F1E9]/60', 'z-10', 'scale-[-1]')} />
-      <FloralCorner className={clsx('absolute', 'bottom-2', 'left-2', 'w-24', 'h-24', 'md:w-36', 'md:h-36', 'text-[#F6F1E9]/60', 'z-10', '-scale-y-100')} />
+      {/* Flores decorativas: esquina superior derecha e inferior izquierda */}
+      <img
+        src={flor1}
+        alt=""
+        aria-hidden="true"
+        className={clsx('absolute', 'top-0', 'right-0', 'w-40', 'sm:w-52', 'md:w-64', 'h-auto', 'opacity-90', 'pointer-events-none', 'select-none', 'z-10', 'rotate-180')}
+      />
+      <img
+        src={flor1}
+        alt=""
+        aria-hidden="true"
+        className={clsx('absolute', 'bottom-0', 'left-0', 'w-40', 'sm:w-52', 'md:w-64', 'h-auto', 'opacity-90', 'pointer-events-none', 'select-none', 'z-10')}
+      />
 
       {/* 2. Textos (Arriba y Abajo del sobre) */}
       <div
