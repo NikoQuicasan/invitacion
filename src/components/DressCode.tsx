@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import flor1 from '../assets/hotel/flor1.png';
 import TornDivider from './TornDivider';
 import ScrollReveal from './ScrollReveal';
 // Ajusta estas rutas a donde guardes las imágenes de los modelos (exportadas de Figma sin fondo)
@@ -30,20 +29,6 @@ export default function DressCode() {
 
   return (
     <section className={clsx('relative', 'w-full', 'min-h-[100dvh]', 'flex', 'flex-col', 'items-center', 'justify-center', 'py-24', 'px-6', 'bg-[#563b31]', 'text-[#F6F1E9]', 'overflow-hidden')}>
-
-      {/* Flores decorativas: esquina superior derecha e inferior izquierda */}
-      <img
-        src={flor1}
-        alt=""
-        aria-hidden="true"
-        className={clsx('absolute', 'top-0', 'right-0', 'w-40', 'sm:w-48', 'md:w-60', 'h-auto', 'opacity-80', 'pointer-events-none', 'select-none', 'z-0', 'rotate-180')}
-      />
-      <img
-        src={flor1}
-        alt=""
-        aria-hidden="true"
-        className={clsx('absolute', 'bottom-0', 'left-0', 'w-40', 'sm:w-48', 'md:w-60', 'h-auto', 'opacity-80', 'pointer-events-none', 'select-none', 'z-0')}
-      />
 
       {/* Modelos laterales (ocultos en mobile, visibles desde tablet/desktop) */}
       <img

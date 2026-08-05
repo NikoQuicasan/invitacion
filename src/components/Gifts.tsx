@@ -2,7 +2,7 @@ import qrImg from '../assets/qr/qr.jpg';
 import clsx from 'clsx';
 import FloralCorner from './FloralCorner';
 import ScrollReveal from './ScrollReveal';
-
+import flor1 from '../assets/hotel/flor1.png';
 // Ícono de sobre personalizado con sello de cera e iniciales
 function EnvelopeIcon({ className }: { className?: string }) {
   return (
@@ -29,12 +29,26 @@ function EnvelopeIcon({ className }: { className?: string }) {
 
 export default function Gifts() {
   return (
+    
     <section className={clsx(
       'relative', 'w-full', 'min-h-[100dvh]', 'flex', 'items-center', 'justify-center', 
       'py-16', 'px-4', 'md:px-8', 
       'bg-[#a36d35]', // Fondo exterior (ligeramente más oscuro para contrastar)
       'overflow-hidden'
     )}>
+      {/* Flores decorativas: esquina superior derecha e inferior izquierda */}
+      <img
+        src={flor1}
+        alt=""
+        aria-hidden="true"
+        className={clsx('absolute', 'top-0', 'right-0', 'w-40', 'sm:w-48', 'md:w-60', 'h-auto', 'opacity-80', 'pointer-events-none', 'select-none', 'z-0', 'rotate-180')}
+      />
+      <img
+        src={flor1}
+        alt=""
+        aria-hidden="true"
+        className={clsx('absolute', 'bottom-0', 'left-0', 'w-40', 'sm:w-48', 'md:w-60', 'h-auto', 'opacity-80', 'pointer-events-none', 'select-none', 'z-0')}
+      />
 
       {/* Tarjeta Central que simula la invitación física */}
       <ScrollReveal y={50} className={clsx(

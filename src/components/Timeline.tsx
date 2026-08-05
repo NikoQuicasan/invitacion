@@ -3,6 +3,11 @@ import clsx from 'clsx';
 import jarronImg from '../assets/itinerario/jarron.png';
 import TornDivider from './TornDivider';
 import ScrollReveal from './ScrollReveal';
+
+// Importamos las flores decorativas (las mismas que en OurStory)
+import flornegra1 from '../assets/hotel/flornegra1.png';
+import flornegra2 from '../assets/hotel/flornegra2.png';
+
 const itinerary = [
   { time: '3:00 PM', title: 'Recepción', desc: 'Llegada de invitados, bienvenida y primer brindis.' },
   { time: '3:30 PM', title: 'Ceremonia', desc: 'Nuestros votos frente a familia y amigos.' },
@@ -16,8 +21,22 @@ export default function Schedule() {
   return (
     <section className={clsx('relative', 'w-full', 'min-h-[100dvh]', 'bg-[#F6F1E9]', 'text-[#4A3B32]', 'py-20', 'px-6', 'flex', 'justify-center', 'items-center', 'overflow-hidden')}>
       
-      {/* Contenedor Grid Principal */}
-      <div className={clsx('w-full', 'max-w-6xl', 'grid', 'grid-cols-1', 'md:grid-cols-12', 'gap-16', 'md:gap-12', 'lg:gap-24')}>
+      {/* Flores decorativas: Ocultas en móvil ('hidden', 'md:block'), fijas arriba a la derecha y abajo a la izquierda en pantallas medianas/grandes */}
+      <img 
+        src={flornegra1} 
+        alt="" 
+        aria-hidden="true" 
+        className={clsx('absolute', 'bottom-0', 'right-0', 'w-48', 'lg:w-60', 'h-auto', 'opacity-70', 'pointer-events-none', 'select-none', 'z-0', 'rotate-180', 'hidden', 'md:block')} 
+      />
+      <img 
+        src={flornegra2} 
+        alt="" 
+        aria-hidden="true" 
+        className={clsx('absolute', 'top-0', 'left-0', 'w-48', 'lg:w-60', 'h-auto', 'opacity-70', 'pointer-events-none', 'select-none', 'z-0', 'rotate-180', 'hidden', 'md:block')} 
+      />
+
+      {/* Contenedor Grid Principal - Agregamos z-10 para que quede por encima de las flores */}
+      <div className={clsx('relative', 'z-10', 'w-full', 'max-w-6xl', 'grid', 'grid-cols-1', 'md:grid-cols-12', 'gap-16', 'md:gap-12', 'lg:gap-24')}>
         
         {/* Columna Izquierda: Título, Fecha y Jarrón */}
         <ScrollReveal className={clsx('md:col-span-5', 'flex', 'flex-col', 'items-center', 'md:items-start', 'text-center', 'md:text-left')}>

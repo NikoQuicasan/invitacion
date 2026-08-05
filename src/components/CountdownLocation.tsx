@@ -73,9 +73,6 @@ export default function Countdown() {
       <CornerSVG className={clsx('absolute', 'top-4', 'left-4', 'w-16', 'md:w-24', 'h-auto', 'pointer-events-none')} />
       <CornerSVG className={clsx('absolute', 'top-4', 'right-4', 'w-16', 'md:w-24', 'h-auto', 'pointer-events-none', 'scale-x-[-1]')} />
 
-      {/* Adorno inferior */}
-      <BottomOrnamentSVG className={clsx('absolute', 'bottom-0', 'left-1/2', '-translate-x-1/2', 'w-full', 'max-w-2xl', 'h-auto', 'pointer-events-none')} />
-
       {/* Contenido principal */}
       <div className={clsx('relative', 'z-10', 'flex', 'flex-col', 'items-center', 'w-full', 'px-4')}>
         

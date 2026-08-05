@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import FloralCorner from './FloralCorner';
 import ScrollReveal from './ScrollReveal';
-
+import flor1 from '../assets/hotel/flor1.png';
 // Vector: Línea ornamental elegante para las fechas
 const OrnamentalLineSVG = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 100 15" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,6 +37,18 @@ export default function RsvpForm() {
       'relative', 'w-full', 'min-h-[60dvh]', 'flex', 'flex-col', 'items-center', 'justify-center', 
       'py-24', 'bg-[#d18567]', 'text-[#F6F1E9]', 'text-center', 'px-4', 'overflow-hidden'
     )}>
+      <img
+        src={flor1}
+        alt=""
+        aria-hidden="true"
+        className={clsx('absolute', 'bottom-0', 'right-0', 'w-40', 'sm:w-48', 'md:w-60', 'h-auto', 'opacity-80', 'pointer-events-none', 'select-none', 'z-0', 'rotate-180')}
+      />
+      <img
+        src={flor1}
+        alt=""
+        aria-hidden="true"
+        className={clsx('absolute', 'top-0', 'left-0', 'w-40', 'sm:w-48', 'md:w-60', 'h-auto', 'opacity-80', 'pointer-events-none', 'select-none', 'z-0')}
+      />
 
       {/* Esquinas florales que ya tenías */}
       <FloralCorner className={clsx('absolute', 'top-4', 'left-4', 'w-16', 'md:w-20', 'h-auto', 'text-[#F6F1E9]/25')} />
