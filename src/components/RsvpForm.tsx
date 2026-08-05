@@ -11,25 +11,6 @@ const OrnamentalLineSVG = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// Vector: Adorno botánico para la base de la invitación
-const BottomFlourishSVG = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 300 80" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Ramas curvas principales */}
-    <path d="M150 80 Q150 40 90 20 C 70 10 40 15 10 40" stroke="currentColor" strokeWidth="1" opacity="0.3" strokeLinecap="round"/>
-    <path d="M150 80 Q150 40 210 20 C 230 10 260 15 290 40" stroke="currentColor" strokeWidth="1" opacity="0.3" strokeLinecap="round"/>
-    
-    {/* Detalles centrales */}
-    <circle cx="150" cy="70" r="2.5" fill="currentColor" opacity="0.5"/>
-    <circle cx="150" cy="55" r="1.5" fill="currentColor" opacity="0.4"/>
-    <circle cx="150" cy="45" r="1" fill="currentColor" opacity="0.3"/>
-    
-    {/* Hojitas sutiles */}
-    <path d="M110 30 C 115 20 125 25 120 35 Z" fill="currentColor" opacity="0.25"/>
-    <path d="M190 30 C 185 20 175 25 180 35 Z" fill="currentColor" opacity="0.25"/>
-    <path d="M60 25 C 65 15 75 18 70 28 Z" fill="currentColor" opacity="0.2"/>
-    <path d="M240 25 C 235 15 225 18 230 28 Z" fill="currentColor" opacity="0.2"/>
-  </svg>
-);
 
 export default function RsvpForm() {
   return (
@@ -53,9 +34,6 @@ export default function RsvpForm() {
       {/* Esquinas florales que ya tenías */}
       <FloralCorner className={clsx('absolute', 'top-4', 'left-4', 'w-16', 'md:w-20', 'h-auto', 'text-[#F6F1E9]/25')} />
       <FloralCorner className={clsx('absolute', 'top-4', 'right-4', 'w-16', 'md:w-20', 'h-auto', 'text-[#F6F1E9]/25', 'scale-x-[-1]')} />
-
-      {/* Adorno base que enmarca el botón desde abajo */}
-      <BottomFlourishSVG className={clsx('absolute', 'bottom-0', 'left-1/2', '-translate-x-1/2', 'w-full', 'max-w-xl', 'h-auto', 'pointer-events-none', 'z-0')} />
 
       {/* Mes */}
       <ScrollReveal y={20} className={clsx('relative', 'z-10', 'font-pinyon', 'text-7xl', 'md:text-8xl', 'mb-6', 'drop-shadow-sm')}>
