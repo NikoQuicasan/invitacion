@@ -26,16 +26,6 @@ const VerticalDividerSVG = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// Vector: Adorno inferior centrado
-const BottomOrnamentSVG = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 300 50" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 50 Q150 -10 300 50" stroke="currentColor" strokeWidth="1" opacity="0.2"/>
-    <path d="M50 50 Q150 15 250 50" stroke="currentColor" strokeWidth="1.5" opacity="0.2"/>
-    <path d="M110 50 Q150 30 190 50" stroke="currentColor" strokeWidth="1" opacity="0.3"/>
-    <circle cx="150" cy="40" r="2" fill="currentColor" opacity="0.3"/>
-  </svg>
-);
-
 export default function Countdown() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
