@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 // Ajusta esta ruta a donde guardes el jarrón.png
 import jarronImg from '../assets/itinerario/jarron.png';
-import TornDivider from './TornDivider';
 import ScrollReveal from './ScrollReveal';
 
 // Importamos las flores decorativas (las mismas que en OurStory)
@@ -92,8 +91,6 @@ export default function Schedule() {
 
       </div>
 
-      {/* "Recorte" hacia la siguiente sección (DressCode, fondo #563b31) */}
-      <TornDivider color="#563b31" />
     </section>
   );
 }
