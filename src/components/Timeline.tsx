@@ -11,7 +11,7 @@ const itinerary = [
   { time: '3:00 PM', title: 'Recepción', desc: 'Llegada de invitados, bienvenida y primer brindis.' },
   { time: '3:30 PM', title: 'Ceremonia', desc: 'Nuestros votos frente a familia y amigos.' },
   { time: '5:10 PM', title: 'El Sí Acepto', desc: 'El momento que estábamos esperando.' },
-  { time: '6:10 PM', title: 'Cena', desc: 'Una cena para celebrar juntos.' },
+  { time: '7:00 PM', title: 'Cena', desc: 'Una cena para celebrar juntos.' },
   { time: '8:00 PM', title: 'Fiestuqui', desc: 'Música, baile y buena energía hasta tarde.' },
   { time: '2:00 AM', title: 'Salida', desc: 'Cierre de la celebración.' }
 ];

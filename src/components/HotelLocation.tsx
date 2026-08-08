@@ -17,9 +17,10 @@ export default function HotelLocation() {
         aria-hidden="true"
         className={clsx(
           'absolute', 'top-0', 'right-0', 
-          'w-56', 'sm:w-64', 'md:w-80', 'lg:w-96', 'h-auto', // Tamaños grandes para asegurar presencia en móvil y desktop
-          'opacity-90', 'pointer-events-none', 'select-none', 'z-0',
-          'rotate-180' // Rota 180 grados para que haga efecto espejo en la esquina opuesta
+          'w-32', 'sm:w-48', 'md:w-80', 'lg:w-96', 'h-auto', // Mucho más pequeñas en mobile
+          'opacity-30', 'md:opacity-90', // Reducimos opacidad en mobile para que no estorben al texto
+          'pointer-events-none', 'select-none', 'z-0',
+          'rotate-180' 
         )}
       />
 
@@ -30,9 +31,9 @@ export default function HotelLocation() {
         aria-hidden="true"
         className={clsx(
           'absolute', 'bottom-0', 'left-0', 
-          'w-56', 'sm:w-64', 'md:w-80', 'lg:w-96', 'h-auto', // Mismos tamaños generosos
-          'opacity-90', 'pointer-events-none', 'select-none', 'z-0'
-          // Sin rotación, su borde plano natural encaja a la izquierda
+          'w-32', 'sm:w-48', 'md:w-80', 'lg:w-96', 'h-auto', // Mucho más pequeñas en mobile
+          'opacity-30', 'md:opacity-90', // Reducimos opacidad en mobile
+          'pointer-events-none', 'select-none', 'z-0'
         )}
       />
 
@@ -59,7 +60,7 @@ export default function HotelLocation() {
             src={hotelImg}
             alt="Hotel El Campanario"
             className={clsx(
-              'w-full', 'h-80', 'md:h-[28rem]', 'lg:h-[32rem]', 
+              'w-full', 'h-60', 'sm:h-80', 'md:h-[28rem]', 'lg:h-[32rem]', // 'h-60' la hace más baja y controlada en móviles
               'object-cover', 'rounded-xl', 'border', 'border-[#F6F1E9]/20'
             )}
           />
@@ -69,10 +70,10 @@ export default function HotelLocation() {
             target="_blank"
             rel="noreferrer"
             className={clsx(
-              'absolute', 'bottom-8', 'left-1/2', '-translate-x-1/2', 
+              'absolute', 'bottom-6', 'md:bottom-8', 'left-1/2', '-translate-x-1/2', 
               'bg-[#879a66]', 'hover:bg-[#728356]', 'text-[#F6F1E9]', 'font-montserrat', 'font-bold', 
-              'text-xs', 'md:text-sm', 'tracking-widest', 'uppercase', 
-              'px-10', 'md:px-12', 'py-4', 'md:py-5', 'rounded-full', 
+              'text-[11px]', 'md:text-sm', 'tracking-widest', 'uppercase', 
+              'px-6', 'sm:px-10', 'md:px-12', 'py-3', 'md:py-5', 'rounded-full', // Padding y texto menores en mobile para que quepa bien
               'transition-transform', 'hover:scale-105', 'shadow-xl', 'whitespace-nowrap'
             )}
           >

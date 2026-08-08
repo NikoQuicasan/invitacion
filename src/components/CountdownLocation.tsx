@@ -1,18 +1,7 @@
 import { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import ScrollReveal from './ScrollReveal';
-
-// Vector: Esquina decorativa (estilo marco elegante)
-const CornerSVG = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M5 5 L85 5" stroke="currentColor" strokeWidth="1.5" opacity="0.7"/>
-    <path d="M5 5 L5 85" stroke="currentColor" strokeWidth="1.5" opacity="0.7"/>
-    <path d="M15 15 C 40 15, 15 40, 15 70" stroke="currentColor" strokeWidth="0.7" opacity="0.7"/>
-    <path d="M15 15 C 15 40, 40 15, 70 15" stroke="currentColor" strokeWidth="0.7" opacity="0.7"/>
-    <circle cx="15" cy="15" r="2.5" fill="currentColor" opacity="0.7"/>
-    <circle cx="25" cy="25" r="1" fill="currentColor" opacity="0.5"/>
-  </svg>
-);
+import flor1 from '../assets/hotel/flor1.png';
 
 // Vector: Divisor vertical floral entre los números
 const VerticalDividerSVG = ({ className }: { className?: string }) => (
@@ -59,9 +48,19 @@ export default function Countdown() {
       'text-[#F6F1E9]', 'text-center', 'overflow-hidden'
     )}>
 
-      {/* Esquinas superiores decorativas */}
-      <CornerSVG className={clsx('absolute', 'top-4', 'left-4', 'w-16', 'md:w-24', 'h-auto', 'pointer-events-none')} />
-      <CornerSVG className={clsx('absolute', 'top-4', 'right-4', 'w-16', 'md:w-24', 'h-auto', 'pointer-events-none', 'scale-x-[-1]')} />
+      {/* Flores decorativas en las esquinas */}
+      <img
+        src={flor1}
+        alt=""
+        aria-hidden="true"
+        className={clsx('absolute', 'bottom-0', 'right-0', 'w-40', 'sm:w-48', 'md:w-60', 'h-auto', 'opacity-80', 'pointer-events-none', 'select-none', 'z-0', 'rotate-180')}
+      />
+      <img
+        src={flor1}
+        alt=""
+        aria-hidden="true"
+        className={clsx('absolute', 'top-0', 'left-0', 'w-40', 'sm:w-48', 'md:w-60', 'h-auto', 'opacity-80', 'pointer-events-none', 'select-none', 'z-0')}
+      />
 
       {/* Contenido principal */}
       <div className={clsx('relative', 'z-10', 'flex', 'flex-col', 'items-center', 'w-full', 'px-4')}>
