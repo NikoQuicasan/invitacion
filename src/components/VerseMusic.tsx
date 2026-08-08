@@ -20,45 +20,39 @@ export default function OurStory() {
   return (
     <section className={clsx('relative', 'w-full', 'min-h-[100dvh]', 'flex', 'flex-col', 'items-center', 'justify-center', 'px-6', 'py-20', 'bg-[#F6F1E9]', 'text-[#4A5D23]', 'overflow-hidden')}>
 
-      {/* Flores decorativas (versión gris, para fondo claro): esquina superior derecha e inferior izquierda */}
-      <img src={flornegra1} alt="" aria-hidden="true" className={clsx('absolute', 'right-0', 'w-40', 'sm:w-48', 'md:w-60', 'h-auto', 'opacity-70', 'pointer-events-none', 'select-none', 'z-0', 'rotate-180')} />
-      <img src={flornegra2} alt="" aria-hidden="true" className={clsx('absolute', 'left-0', 'w-40', 'sm:w-48', 'md:w-60', 'h-auto', 'opacity-70', 'pointer-events-none', 'select-none', 'z-0', 'rotate-180')} />
+      {/* Flores decorativas (marca de agua gris): empujadas a los bordes con opacidad baja */}
+      <img src={flornegra1} alt="" aria-hidden="true" className={clsx('absolute', 'bottom-0', 'right-0', 'w-40', 'sm:w-48', 'md:w-56', 'h-auto', 'opacity-20', 'pointer-events-none', 'select-none', 'z-0', 'rotate-180')} />
+      <img src={flornegra2} alt="" aria-hidden="true" className={clsx('absolute', 'top-0', 'left-0', 'w-40', 'sm:w-48', 'md:w-56', 'h-auto', 'opacity-20', 'pointer-events-none', 'select-none', 'z-0','rotate-180')} />
 
       {/* Fila: texto — foto — texto */}
-      <ScrollReveal className={clsx('flex', 'flex-col', 'md:flex-row', 'items-center', 'justify-center', 'gap-10', 'md:gap-16', 'lg:gap-24', 'w-full', 'max-w-6xl', 'z-10')}>
+      <ScrollReveal className={clsx('flex', 'flex-col', 'md:flex-row', 'items-center', 'justify-center', 'gap-6', 'md:gap-8', 'lg:gap-12', 'w-full', 'max-w-5xl', 'z-10')}>
 
-        <p className={clsx('md:flex-1', 'text-center', 'md:text-right', 'font-cormorant', 'text-2xl', 'md:text-4xl', 'lg:text-5xl', 'tracking-[0.15em]', 'uppercase', 'leading-snug')}>
+        {/* Texto NUESTRA */}
+        <p className={clsx('md:flex-1', 'text-center', 'md:text-right', 'font-cormorant', 'text-2xl', 'md:text-3xl', 'lg:text-4xl', 'tracking-[0.15em]', 'uppercase', 'leading-snug')}>
           Nuestra<br className={clsx('hidden', 'md:block')} />
         </p>
 
+        {/* Contenedor de la Foto Polaroid */}
         <div className={clsx('relative', 'flex-shrink-0')}>
-          <BranchSVG className={clsx('absolute', 'w-24', 'md:w-36', 'right-[75%]', 'bottom-0', 'md:-bottom-5', 'opacity-30', 'pointer-events-none', 'z-0', '-scale-x-100', 'rotate-12')} />
-          <BranchSVG className={clsx('absolute', 'w-24', 'md:w-36', 'left-[75%]', 'top-0', 'md:-top-5', 'opacity-30', 'pointer-events-none', 'z-0', 'rotate-[190deg]')} />
+          {/* Ramas SVG decorativas detrás de la foto */}
+          <BranchSVG className={clsx('absolute', 'w-24', 'md:w-32', 'right-[80%]', 'bottom-0', 'md:-bottom-5', 'opacity-30', 'pointer-events-none', 'z-0', '-scale-x-100', 'rotate-12')} />
+          <BranchSVG className={clsx('absolute', 'w-24', 'md:w-32', 'left-[80%]', 'top-0', 'md:-top-5', 'opacity-30', 'pointer-events-none', 'z-0', 'rotate-[190deg]')} />
 
-          <div className={clsx('relative', 'z-10', 'w-64', 'md:w-80', 'lg:w-[26rem]', 'aspect-[3/4]', 'bg-white', 'p-3', 'md:p-4', 'pb-12', 'md:pb-16', 'shadow-[15px_15px_20px_rgba(0,0,0,0.15)]', '-rotate-2')}>
+          <div className={clsx('relative', 'z-10', 'w-64', 'md:w-72', 'lg:w-[22rem]', 'aspect-[3/4]', 'bg-white', 'p-3', 'md:p-4', 'pb-12', 'md:pb-16', 'shadow-[15px_15px_20px_rgba(0,0,0,0.15)]', '-rotate-2')}>
             <img src={proposalImg} alt="Niko y Aleja" className={clsx('w-full', 'h-full', 'object-cover')} />
           </div>
         </div>
 
-        <p className={clsx('md:flex-1', 'text-center', 'md:text-left', 'font-cormorant', 'text-2xl', 'md:text-4xl', 'lg:text-5xl', 'tracking-[0.15em]', 'uppercase', 'leading-snug')}>
+        {/* Texto HISTORIA */}
+        <p className={clsx('md:flex-1', 'text-center', 'md:text-left', 'font-cormorant', 'text-2xl', 'md:text-3xl', 'lg:text-4xl', 'tracking-[0.15em]', 'uppercase', 'leading-snug')}>
           Historia<br className={clsx('hidden', 'md:block')} />
         </p>
 
       </ScrollReveal>
 
       {/* Párrafo de la historia */}
-      <ScrollReveal delay={0.2} className={clsx('mt-16', 'md:mt-24', 'max-w-md', 'md:max-w-2xl', 'text-center', 'font-cormorant', 'text-sm', 'md:text-base', 'tracking-widest', 'leading-relaxed', 'opacity-90')}>
-        Todo comenzó con una mirada cómplice en una playa similar a esta, bajo el
-        <br className="hidden md:block"/>
-        manto estrellado. No fue casualidad, fue el inicio de nuestro propio
-        <br className="hidden md:block"/>
-        'Quiero Contigo'. Desde aquel primer encuentro, cada ola y cada viaje han
-        <br className="hidden md:block"/>
-        sido un paso más en nuestro camino compartido. Hoy, nos preparamos para
-        <br className="hidden md:block"/>
-        el capítulo más importante: el resto de nuestras vidas.
-        <br className="hidden md:block"/>
-        ¡Gracias por ser parte de nuestra historia!
+      <ScrollReveal delay={0.2} className={clsx('mt-12', 'md:mt-16', 'max-w-md', 'md:max-w-3xl', 'text-center', 'font-cormorant', 'text-sm', 'md:text-lg', 'tracking-widest', 'leading-relaxed', 'opacity-90', 'px-4', 'z-10')}>
+        Todo comenzó con una mirada cómplice en una playa similar a esta, bajo el manto estrellado. No fue casualidad, fue el inicio de nuestro propio 'Quiero Contigo'. Desde aquel primer encuentro, cada ola y cada viaje han sido un paso más en nuestro camino compartido. Hoy, nos preparamos para el capítulo más importante: el resto de nuestras vidas.<br/><br/>¡Gracias por ser parte de nuestra historia!
       </ScrollReveal>
 
       {/* "Recorte" hacia la siguiente sección (LoveVerse, fondo #563b31) */}

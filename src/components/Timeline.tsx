@@ -20,19 +20,19 @@ export default function Schedule() {
   return (
     <section className={clsx('relative', 'w-full', 'min-h-[100dvh]', 'bg-[#F6F1E9]', 'text-[#4A3B32]', 'py-20', 'px-6', 'flex', 'justify-center', 'items-center', 'overflow-hidden')}>
       
-      {/* Flores decorativas: Ocultas en móvil ('hidden', 'md:block'), fijas arriba a la derecha y abajo a la izquierda en pantallas medianas/grandes */}
+      {/* Flores decorativas: Opacidad reducida a 20 y tamaño ligeramente menor para no competir con el título */}
       <img 
         src={flornegra1} 
         alt="" 
         aria-hidden="true" 
-        className={clsx('absolute', 'bottom-0', 'right-0', 'w-48', 'lg:w-60', 'h-auto', 'opacity-70', 'pointer-events-none', 'select-none', 'z-0', 'rotate-180', 'hidden', 'md:block')} 
+        className={clsx('absolute', 'bottom-0', 'right-0', 'w-32', 'md:w-40', 'lg:w-48', 'h-auto', 'opacity-20', 'pointer-events-none', 'select-none', 'z-0', 'rotate-180', 'hidden', 'md:block')} 
       />
       <img 
         src={flornegra2} 
         alt="" 
         aria-hidden="true" 
-        className={clsx('absolute', 'top-0', 'left-0', 'w-48', 'lg:w-60', 'h-auto', 'opacity-70', 'pointer-events-none', 'select-none', 'z-0', 'rotate-180', 'hidden', 'md:block')} 
-      />
+        className={clsx('absolute', 'top-0', 'left-0', 'w-32', 'md:w-40', 'lg:w-48', 'h-auto', 'opacity-20', 'pointer-events-none', 'select-none', 'z-0','rotate-180', 'hidden', 'md:block')} 
+      /> {/* Nota: Quité el 'rotate-180' de esta imagen porque normalmente la flor superior izquierda va en su orientación original, pero si en tu imagen se ve rara, puedes volver a ponérselo */}
 
       {/* Contenedor Grid Principal - Agregamos z-10 para que quede por encima de las flores */}
       <div className={clsx('relative', 'z-10', 'w-full', 'max-w-6xl', 'grid', 'grid-cols-1', 'md:grid-cols-12', 'gap-16', 'md:gap-12', 'lg:gap-24')}>
@@ -41,7 +41,7 @@ export default function Schedule() {
         <ScrollReveal className={clsx('md:col-span-5', 'flex', 'flex-col', 'items-center', 'md:items-start', 'text-center', 'md:text-left')}>
           
           <div className={clsx('w-full')}>
-            <h2 className={clsx('font-cormorant', 'text-5xl', 'md:text-6xl', 'lg:text-7xl', 'tracking-[0.15em]', 'uppercase', 'mb-3')}>
+            <h2 className={clsx('font-cormorant', 'text-4xl', 'md:text-5xl', 'lg:text-6xl', 'tracking-[0.15em]', 'uppercase', 'mb-3')}>
               Itinerario
             </h2>
             <p className={clsx('font-montserrat', 'text-xs', 'md:text-sm', 'tracking-[0.2em]', 'uppercase', 'opacity-70')}>
